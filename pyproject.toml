@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "repl_python3_TF2-Pilled"
+name = "repl_python3_TF2-Blender-Server-bot"
 version = "0.1.0"
-description = ""
+description = "yeah"
 authors = ["tazzan <tazzanyt@gmail.com>"]
 
 [tool.poetry.dependencies]
