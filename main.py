@@ -1,10 +1,9 @@
 import discord
 import os
 import random
-import -U discord-py-interactions
 from keepalive import keep_alive
-from discord_slash.utils.manage_components import create_button, create_actionrow
 from discord_slash.model import ButtonStyle
+from discord_slash.utils.manage_components import create_button, create_actionrow
 
 client = discord.Client()
 myid = [
