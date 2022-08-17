@@ -1,10 +1,7 @@
 import discord
 import os
 import random
-import -U discord-py-interactions
 from keepalive import keep_alive
-from discord_slash.utils.manage_components import create_button, create_actionrow
-from discord_slash.model import ButtonStyle
 
 client = discord.Client()
 myid = [
@@ -12,25 +9,6 @@ myid = [
 ]
 
 #Interactions
-started_buttons =[
-  create_button(
-                style=ButtonStyle.green,
-                label="Crowbar"
-            ),
-  create_button(
-                style=ButtonStyle.orange,
-                label="Blender Source Tools"
-            ),
-  create_button(
-                style=ButtonStyle.blue,
-                label="Import VMF"
-            ),
-  create_button(
-                style=ButtonStyle.red,
-                label="SourceIO"
-            ),
-          ]
-started_action_row = create_actionrow(*started_buttons)
 
 #Word lists
 d4_words = [
@@ -219,9 +197,7 @@ async def on_message(message):
         helpEmbed.add_field(name="!repl", value="Brings you to the replit.com page where I'm being hosted", inline=True)
         await message.channel.send(embed=helpEmbed)
     if any(word in msg for word in started):
-        startedEmbed = discord.Embed(title="Here ya go:", description="Let's get you started!", color=0xC82C30)
-        startedEmbed
-        await message.channel.send(embed=startedEmbed, components=[started_action_row])
+        await message.channel.send("Waiting for replit to update Python before this message works, stay tuned!")
     if msg.startswith('!mercs'):
         await message.channel.send("Here ya go: https://www.youtube.com/watch?v=7rH6_eq-I0c")
     if any(word in msg for word in collection_words):
