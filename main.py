@@ -192,6 +192,7 @@ async def on_message(message):
         helpEmbed.add_field(name="!docs", value="Links Woha, [spy], and hisanimations's Source2Blender Documentation page", inline=True)
         helpEmbed.add_field(name="!getmestarted", value="Links a whole bunch of useful stuff to get you started porting TF2 (and other Source content) to Blender")
         helpEmbed.add_field(name="!slander, !filmic, !standard", value="Fun lil commands that send fun lil gifs", inline=True)
+        helpEmbed.add_field(name="!open", value="Opens a support ticket", inline=True)
         helpEmbed.add_field(name="!coinflip", value="Flips a coin, you can get either heads or tails", inline=True)
         helpEmbed.add_field(name="!roll a d#", value="Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20", inline=True)
         helpEmbed.add_field(name="!repl", value="Brings you to the replit.com page where I'm being hosted", inline=True)
@@ -216,6 +217,8 @@ async def on_message(message):
         await message.channel.send("Here ya go: https://source2blender.readthedocs.io/en/latest/index.html")
     if msg.startswith('!eevee'):
         await message.channel.send("https://media.discordapp.net/attachments/807047989683683328/1009211129651798158/unknown.png")
+    if msg.startswith('!open'):
+        await message.channel.send("https://media.discordapp.net/attachments/723010093033062540/1009476752466264105/ezgif-1-0b7aad519d.gif")
     if msg.startswith('!filmic'):
         await message.channel.send(random.choice(filmic))
     if msg.startswith('!standard'):
