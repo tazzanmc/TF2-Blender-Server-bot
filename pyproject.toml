@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "repl_python3_TF2-Blender-Server-bot"
-version = "0.1.0"
+version = "1.4"
 description = "yeah"
 authors = ["tazzan <tazzanyt@gmail.com>"]
 
@@ -9,6 +9,7 @@ python = "^3.8"
 replit = "^3.2.4"
 discord = "^1.7.3"
 Flask = "^2.0.2"
+pycord = "^0.1.1"
 
 [tool.poetry.dev-dependencies]
 

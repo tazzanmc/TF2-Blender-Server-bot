@@ -4,6 +4,7 @@ import random
 from keepalive import keep_alive
 
 client = discord.Client()
+bot = discord.Bot()
 myid = [
   '<@1009171722601246750>'
 ]
@@ -65,6 +66,7 @@ filmic = [
   "https://media.discordapp.net/attachments/626911954375540748/1008157957093077012/caption.gif",
   "https://media.discordapp.net/attachments/626911954375540748/999075033383186482/FILMIC_.gif",
   "https://cdn.discordapp.com/attachments/723010093033062540/1009189495033315369/caption-2.gif",
+  "https://cdn.discordapp.com/attachments/761155438749810688/1010950045220225054/meme2.gif",
 ]
 
 standard = [
@@ -196,6 +198,7 @@ async def on_message(message):
         helpEmbed.add_field(name="!coinflip", value="Flips a coin, you can get either heads or tails", inline=True)
         helpEmbed.add_field(name="!roll a d#", value="Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20", inline=True)
         helpEmbed.add_field(name="!repl", value="Brings you to the replit.com page where I'm being hosted", inline=True)
+        helpEmbed.add_field(name="!git", value="Directs you to the source code of the bot, hosted on GitHub", inline=True)
         await message.channel.send(embed=helpEmbed)
     if any(word in msg for word in started):
         await message.channel.send("Waiting for replit to update Python before this message works, stay tuned!")
@@ -211,10 +214,12 @@ async def on_message(message):
         await message.channel.send("Here ya go: https://drive.google.com/file/d/1raq59AfiU9uUXwoQmxGE5RcpxoZv5H61/view?usp=drivesdk")
     if msg.startswith('!sheets'):
         await message.channel.send("Here ya go: https://docs.google.com/spreadsheets/d/1F29uWEPtJdfKUX26WGMa5j9trjW9wEWlOHgXIJupoFU/edit#gid=0")
-    if msg.startswith('!repl'):
-        await message.channel.send("Here ya go: https://TF2-Blender-Server-bot.tazzan.repl.co")
     if msg.startswith('!docs'):
         await message.channel.send("Here ya go: https://source2blender.readthedocs.io/en/latest/index.html")
+    if msg.startswith('!repl'):
+        await message.channel.send("Here ya go: https://replit.com/@tazzan/TF2-Blender-Server-bot")
+    if msg.startswith('!git'):
+        await message.channel.send("Here ya go: https://github.com/tazzanmc/TF2-Blender-Server-bot")
     if msg.startswith('!eevee'):
         await message.channel.send("https://media.discordapp.net/attachments/807047989683683328/1009211129651798158/unknown.png")
     if msg.startswith('!open'):
