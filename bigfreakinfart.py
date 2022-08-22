@@ -1,7 +1,5 @@
 import json
 
-
-
 file2 = {"scout": {"named": ["Athenian Attire",
  "B'aaarrgh-n-Bicorne",
  "B'aaarrgh-n-Britches",

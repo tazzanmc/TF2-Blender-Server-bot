@@ -2,9 +2,14 @@ import discord
 import os
 import random
 from keepalive import keep_alive
+from discord.ext import commands
 
-client = discord.Client()
-bot = discord.Bot()
+intents = discord.Intents.default()
+intents.messages = True
+intents.message_content = True
+client = commands.Bot(command_prefix='!', intents=intents)
+
+
 myid = [
   '<@1009171722601246750>'
 ]
@@ -181,7 +186,7 @@ async def on_message(message):
 
     msg = message.content
 
-    #If staring word
+    #Help embed
     if msg.startswith('!help'):
         helpEmbed = discord.Embed(title="Commands", description="I can do all this stuff :D", color=0xC82C30)
         helpEmbed.add_field(name="!help", value="Shows this menu", inline=True)
@@ -200,6 +205,8 @@ async def on_message(message):
         helpEmbed.add_field(name="!repl", value="Brings you to the replit.com page where I'm being hosted", inline=True)
         helpEmbed.add_field(name="!git", value="Directs you to the source code of the bot, hosted on GitHub", inline=True)
         await message.channel.send(embed=helpEmbed)
+
+    #Single response
     if any(word in msg for word in started):
         await message.channel.send("Waiting for replit to update Python before this message works, stay tuned!")
     if msg.startswith('!mercs'):
@@ -224,6 +231,8 @@ async def on_message(message):
         await message.channel.send("https://media.discordapp.net/attachments/807047989683683328/1009211129651798158/unknown.png")
     if msg.startswith('!open'):
         await message.channel.send("https://media.discordapp.net/attachments/723010093033062540/1009476752466264105/ezgif-1-0b7aad519d.gif")
+
+    #Random response  
     if msg.startswith('!filmic'):
         await message.channel.send(random.choice(filmic))
     if msg.startswith('!standard'):
