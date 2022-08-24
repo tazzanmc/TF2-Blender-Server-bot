@@ -7,14 +7,100 @@ from discord.ext import commands
 intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
-client = commands.Bot(command_prefix='!', intents=intents)
+prefix = "!"
+client = commands.Bot(command_prefix=prefix, intents=intents)
 
 
 myid = [
   '<@1009171722601246750>'
 ]
 
-#Interactions
+coin_flip = [
+  "You flipped **tails**",
+  "You flipped **heads**",
+]
+
+commands = [
+  {
+    "name": "coinflip",
+    "info": "Flips a coin, you can get either heads or tails",
+    "aliases": [],
+    "reply": random.choice(coin_flip)
+  },
+  {
+    "name": "collection",
+    "info": "Links hisanimations's TF2 Collection for Blender video",
+    "aliases": ["props", "hats", "weapons"],
+    "reply": "Here ya go: https://www.youtube.com/watch?v=0DMz-n1LSII"
+  },
+  {
+    "name": "mercs",
+    "info": "Links hisanimations's Ultimate TF2 Blender Port video",
+    "aliases": [],
+    "reply": "Here ya go: https://www.youtube.com/watch?v=7rH6_eq-I0c"
+  },
+  {
+    "name": "materials",
+    "info": "Links hisanimations's TF2 materials port",
+    "aliases": [],
+    "reply": "Here ya go: https://drive.google.com/file/d/1nZmlYQ8DjSK3ikDE35B__C6RURI1Jlx-/view?usp=sharing"
+  },
+  {
+    "name": "taunts",
+    "info": "Links hisanimations's TF2 taunts port",
+    "aliases": [],
+    "reply": "Here ya go: https://drive.google.com/file/d/1raq59AfiU9uUXwoQmxGE5RcpxoZv5H61/view?usp=drivesdk"
+  },
+  {
+    "name": "sheets",
+    "info": "Links Woha and hisanimations's Source Engine to Blender All In One Guide",
+    "aliases": [],
+    "reply": "Here ya go: https://docs.google.com/spreadsheets/d/1F29uWEPtJdfKUX26WGMa5j9trjW9wEWlOHgXIJupoFU/edit#gid=0"
+  },  
+  {
+    "name": "docs",
+    "info": "Links Woha, [spy], and hisanimations's Source2Blender Documentation page",
+    "aliases": [],
+    "reply": "Here ya go: https://source2blender.readthedocs.io/en/latest/index.html"
+  },
+  # {
+  #   "name": "fun",
+  #   "info": "Fun lil commands that send fun lil gifs",
+  #   "aliases": ["slander", "filmic", "standard", "eevee"],
+  #   "reply": "Please use the aliases"
+  # },
+  {
+    "name": "open",
+    "info": "Opens a support ticket",
+    "aliases": [],
+    "reply": "https://media.discordapp.net/attachments/723010093033062540/1009476752466264105/ezgif-1-0b7aad519d.gif"
+  },
+  {
+    "name": "espion",
+    "info": "Links [spy]'s EspionRepacker",
+    "aliases": [],
+    "reply": "Here ya go: https://github.com/spy-ware/EspionRepacker/releases"
+  },
+  {
+    "name": "repl",
+    "info": "Brings you to the replit.com page where I'm being hosted",
+    "aliases": [],
+    "reply": "Here ya go: https://replit.com/@tazzan/TF2-Blender-Server-bot"
+  },
+  {
+    "name": "git",
+    "info": "Directs you to the source code of the bot, hosted on GitHub",
+    "aliases": [],
+    "reply": "Here ya go: https://github.com/tazzanmc/TF2-Blender-Server-bot"
+  },
+  {
+    "name": "getstarted",
+    "info": "",
+    "aliases": [],
+    "reply": "This command is in it's alpha stages."
+  }
+]
+
 
 #Word lists
 d4_words = [
@@ -89,10 +175,7 @@ started = [
   "!started"
 ]
 
-coin_flip = [
-  "You flipped **tails**",
-  "You flipped **heads**",
-]
+
 
 d4 = [
    "You rolled a *1*",
@@ -188,49 +271,28 @@ async def on_message(message):
 
     #Help embed
     if msg.startswith('!help'):
-        helpEmbed = discord.Embed(title="Commands", description="I can do all this stuff :D", color=0xC82C30)
-        helpEmbed.add_field(name="!help", value="Shows this menu", inline=True)
-        helpEmbed.add_field(name="!mercs", value="Links hisanimations's Ultimate TF2 Blender Port video", inline=True)
-        helpEmbed.add_field(name="!weapons, !hats, !props", value="Links hisanimations's TF2 Collection for Blender video", inline=True)
-        helpEmbed.add_field(name="!spy, !spyware, !espion, !espionrepacker", value="Links [spy]'s EspionRepacker'", inline=True)
-        helpEmbed.add_field(name="!materials", value="Links hisanimations's TF2 materials port", inline=True)
-        helpEmbed.add_field(name="!taunts", value="Links hisanimations's TF2 taunts port", inline=True)
-        helpEmbed.add_field(name="!sheets", value="Links Woha and hisanimations's Source Engine to Blender All In One Guide", inline=True)
-        helpEmbed.add_field(name="!docs", value="Links Woha, [spy], and hisanimations's Source2Blender Documentation page", inline=True)
-        helpEmbed.add_field(name="!getmestarted", value="Links a whole bunch of useful stuff to get you started porting TF2 (and other Source content) to Blender")
+        helpEmbed = discord.Embed(title="Commands", description="I can do all this stuff :D \n Aliases does not work yet!", color=0xC82C30)
+        help = prefix+"help"
+        helpEmbed.add_field(name=help, value="Shows this menu", inline=True)
+
+        for command in commands:
+          helpEmbed.add_field(name="!help", value="Shows this menu", inline=True)
+          helpEmbed.add_field(name=command.get("name"), value=command.get("info")+"\n Aliases"+command.get("aliases"), inline=True)
         helpEmbed.add_field(name="!slander, !filmic, !standard", value="Fun lil commands that send fun lil gifs", inline=True)
-        helpEmbed.add_field(name="!open", value="Opens a support ticket", inline=True)
-        helpEmbed.add_field(name="!coinflip", value="Flips a coin, you can get either heads or tails", inline=True)
         helpEmbed.add_field(name="!roll a d#", value="Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20", inline=True)
-        helpEmbed.add_field(name="!repl", value="Brings you to the replit.com page where I'm being hosted", inline=True)
-        helpEmbed.add_field(name="!git", value="Directs you to the source code of the bot, hosted on GitHub", inline=True)
         await message.channel.send(embed=helpEmbed)
 
     #Single response
-    if any(word in msg for word in started):
-        await message.channel.send("Waiting for replit to update Python before this message works, stay tuned!")
-    if msg.startswith('!mercs'):
-        await message.channel.send("Here ya go: https://www.youtube.com/watch?v=7rH6_eq-I0c")
-    if any(word in msg for word in collection_words):
-        await message.channel.send("Here ya go: https://www.youtube.com/watch?v=0DMz-n1LSII")
-    if any(word in msg for word in spy_words):
-        await message.channel.send("Here ya go: https://github.com/spy-ware/EspionRepacker/releases")
-    if msg.startswith('!materials'):
-        await message.channel.send("Here ya go: https://drive.google.com/file/d/1nZmlYQ8DjSK3ikDE35B__C6RURI1Jlx-/view?usp=sharing")
-    if msg.startswith('!taunts'):
-        await message.channel.send("Here ya go: https://drive.google.com/file/d/1raq59AfiU9uUXwoQmxGE5RcpxoZv5H61/view?usp=drivesdk")
-    if msg.startswith('!sheets'):
-        await message.channel.send("Here ya go: https://docs.google.com/spreadsheets/d/1F29uWEPtJdfKUX26WGMa5j9trjW9wEWlOHgXIJupoFU/edit#gid=0")
-    if msg.startswith('!docs'):
-        await message.channel.send("Here ya go: https://source2blender.readthedocs.io/en/latest/index.html")
-    if msg.startswith('!repl'):
-        await message.channel.send("Here ya go: https://replit.com/@tazzan/TF2-Blender-Server-bot")
-    if msg.startswith('!git'):
-        await message.channel.send("Here ya go: https://github.com/tazzanmc/TF2-Blender-Server-bot")
+    for coomand in commands:
+      if msg.startswith(prefix+command.get("name")): 
+        await message.channel.send(command.get("reply"))
+
+        
+          
+  
+
     if msg.startswith('!eevee'):
         await message.channel.send("https://media.discordapp.net/attachments/807047989683683328/1009211129651798158/unknown.png")
-    if msg.startswith('!open'):
-        await message.channel.send("https://media.discordapp.net/attachments/723010093033062540/1009476752466264105/ezgif-1-0b7aad519d.gif")
 
     #Random response  
     if msg.startswith('!filmic'):
