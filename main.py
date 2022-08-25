@@ -276,8 +276,12 @@ async def on_message(message):
         helpEmbed.add_field(name=help, value="Shows this menu", inline=True)
 
         for command in commands:
+          commandName = str(command.get("name"))
+          commandInfo = str(command.get("info"))
+          commandAliases = str(command.get("aliases"))
+          fullinfo = str(commandName+"\n Aliases"+commandAliases)
           helpEmbed.add_field(name="!help", value="Shows this menu", inline=True)
-          helpEmbed.add_field(name=command.get("name"), value=command.get("info")+"\n Aliases"+command.get("aliases"), inline=True)
+          helpEmbed.add_field(name=commandName, value=fullinfo, inline=True)
         helpEmbed.add_field(name="!slander, !filmic, !standard", value="Fun lil commands that send fun lil gifs", inline=True)
         helpEmbed.add_field(name="!roll a d#", value="Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20", inline=True)
         await message.channel.send(embed=helpEmbed)
@@ -285,7 +289,8 @@ async def on_message(message):
     #Single response
     for coomand in commands:
       if msg.startswith(prefix+command.get("name")): 
-        await message.channel.send(command.get("reply"))
+        reply = str(command.get("reply"))
+        await message.channel.send(reply)
 
         
           
