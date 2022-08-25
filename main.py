@@ -59,9 +59,9 @@ commands = [
   },  
   {
     "name": "docs",
-    "info": "Links Woha, [spy], and hisanimations's Source2Blender Documentation page",
+    "info": "Links Woha, [espion], and hisanimations's Source2Blender Documentation page",
     "aliases": [],
-    "reply": "Here ya go: https://source2blender.readthedocs.io/en/latest/index.html"
+    "reply": "Here ya go:https://source2blender.readthedocs.io/"
   },
   # {
   #   "name": "fun",
@@ -77,7 +77,7 @@ commands = [
   },
   {
     "name": "espion",
-    "info": "Links [spy]'s EspionRepacker",
+    "info": "Links [espion]'s EspionRepacker",
     "aliases": [],
     "reply": "Here ya go: https://github.com/spy-ware/EspionRepacker/releases"
   },
