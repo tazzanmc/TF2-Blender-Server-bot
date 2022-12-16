@@ -36,58 +36,6 @@ commands = [
         "aliases": [],
         "reply": random.choice(coin_flip)
     },
-    {
-        "name": "collection",
-        "info": "Links hisanimations's TF2 Collection for Blender video",
-        "aliases": [],
-        "reply": "Here ya go: https://www.youtube.com/watch?v=0DMz-n1LSII"
-    },
-    {
-        "name": "mercs",
-        "info": "Links hisanimations's Ultimate TF2 Blender Port video",
-        "aliases": [],
-        "reply": "Here ya go: https://www.youtube.com/watch?v=7rH6_eq-I0c"
-    },
-    {
-        "name": "hl2",
-        "info": "Links hisanimation's HL2 Collection for Blender video",
-        "aliases": [],
-        "reply": "Here ya go: https://www.youtube.com/watch?v=x_SVSiuopbU"
-    },
-    {
-        "name":
-        "materials",
-        "info":
-        "Links hisanimations's TF2 materials port",
-        "aliases": [],
-        "reply":
-        "Here ya go: https://drive.google.com/file/d/1nZmlYQ8DjSK3ikDE35B__C6RURI1Jlx-/view?usp=sharing"
-    },
-    {
-        "name":
-        "taunts",
-        "info":
-        "Links hisanimations's TF2 taunts port",
-        "aliases": [],
-        "reply":
-        "Here ya go: https://drive.google.com/file/d/1raq59AfiU9uUXwoQmxGE5RcpxoZv5H61/view?usp=drivesdk"
-    },
-    {
-        "name":
-        "sheets",
-        "info":
-        "Links Woha and hisanimations's Source Engine to Blender All In One Guide",
-        "aliases": [],
-        "reply":
-        "Here ya go: https://docs.google.com/spreadsheets/d/1F29uWEPtJdfKUX26WGMa5j9trjW9wEWlOHgXIJupoFU/edit#gid=0"
-    },
-    {
-        "name": "docs",
-        "info":
-        "Links Woha, [espion], and hisanimations's Source2Blender Documentation page",
-        "aliases": [],
-        "reply": "This is a guide covering almost everything you need to know about porting source assets to Blender, but do remember to check the #main-ports, #community-ports channels and conduct a general search to check if anyone had already ported what you want: https://source2blender.readthedocs.io/"
-    },
     # {
     #   "name": "fun",
     #   "info": "Fun lil commands that send fun lil gifs",
@@ -113,13 +61,6 @@ commands = [
         "https://media.discordapp.net/attachments/626911954375540748/1053331190809112656/caption.gif"
     },
     {
-        "name": "espion",
-        "info": "Links [espion]'s EspionRepacker",
-        "aliases": [],
-        "reply":
-        "Here ya go: https://github.com/spy-ware/EspionRepacker/releases"
-    },
-    {
         "name": "repl",
         "info": "Brings you to the replit.com page where I'm being hosted",
         "aliases": [],
@@ -133,13 +74,6 @@ commands = [
         "reply":
         "Here ya go: https://github.com/tazzanmc/TF2-Blender-Server-bot"
     },
-    {
-        "name": "getstarted",
-        "info":
-        "Gets you started with useful resources for porting (not yet implemented)",
-        "aliases": [],
-        "reply": "This command is in it's alpha stages."
-    }
 ]
 
 #Word lists
@@ -179,19 +113,6 @@ coin_words = [
     "!flip a coin",
 ]
 
-collection_words = [
-    "!props",
-    "!hats",
-    "!weapons",
-]
-
-spy_words = [
-    "!spy",
-    "!spyware",
-    "!espion",
-    "!espionrepacker",
-]
-
 #Responses
 filmic = [
     "https://media.discordapp.net/attachments/626911954375540748/1008157957093077012/caption.gif",
@@ -207,8 +128,6 @@ standard = [
 slander = [
     "https://media.discordapp.net/attachments/626911954375540748/1008113640571932732/meme.gif",
 ]
-
-started = ["!letsgetitstarted", "!getmestarted", "!getstarted", "!started"]
 
 d4 = [
     "You rolled a *1*",
