@@ -43,21 +43,17 @@ commands = [
     #   "reply": "Please use the aliases"
     # },
     {
-        "name":
-        "open",
-        "info":
-        "Opens a support ticket",
+        "name": "open",
+        "info": "Opens a support ticket",
         "aliases": [],
         "reply":
         "https://media.discordapp.net/attachments/723010093033062540/1009476752466264105/ezgif-1-0b7aad519d.gif"
     },
     {
-        "name":
-        "invite",
-        "info":
-        "Invite your friends",
+        "name": "invite",
+        "info": "Invite your friends",
         "aliases": [],
-        "reply":
+        "reply": 
         "https://media.discordapp.net/attachments/626911954375540748/1053331190809112656/caption.gif"
     },
     {
@@ -127,6 +123,11 @@ standard = [
 
 slander = [
     "https://media.discordapp.net/attachments/626911954375540748/1008113640571932732/meme.gif",
+]
+
+docs = [
+    "https://media.discordapp.net/attachments/828753545792061500/1053771864402567268/caption.gif",
+    "https://media.discordapp.net/attachments/828753545792061500/1053770809916792902/caption.gif",
 ]
 
 d4 = [
@@ -242,14 +243,18 @@ async def on_message(message):
             # + "\n Aliases: " + commandAliases (Future Time)
             fullinfo = str(commandInfo)
             helpEmbed.add_field(name=commandName, value=fullinfo, inline=True)
-        helpEmbed.add_field(name="!slander, !filmic, !standard",
-                            value="Fun lil commands that send fun lil gifs",
-                            inline=True)
         helpEmbed.add_field(
-            name="!roll a d#",
-            value=
-            "Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20",
-            inline=True)
+            name = "!slander, !filmic, !standard",
+            value = "Fun lil commands that send fun lil gifs",
+            inline = True)
+        helpEmbed.add_field(
+            name = "!roll a d#",
+            value = "Rolls the dice of the specified number, options are as follows: d4, d6, d8, d10, d12, d20",
+            inline = True)
+        helpEmbed.add_field(
+            name = "!docs",
+            value = "Brings up the Source2Blender docs",
+            inline = True)
         await message.channel.send(embed=helpEmbed)
 
     #Single response
@@ -271,6 +276,8 @@ async def on_message(message):
         await message.channel.send(random.choice(standard))
     if msg.startswith('!slander'):
         await message.channel.send(random.choice(slander))
+    if msg.startswith('!docs'):
+        await message.channel.send(random.choice(docs))
     if any(word in msg for word in coin_words):
         await message.channel.send(random.choice(coin_flip))
     if any(word in msg for word in d20_words):
