@@ -278,8 +278,6 @@ async def on_message(message):
         await message.channel.send(random.choice(slander))
     if msg.startswith('!docs'):
         await message.channel.send(random.choice(docs))
-    if any(word in msg for word in coin_words):
-        await message.channel.send(random.choice(coin_flip))
     if any(word in msg for word in d20_words):
         await message.channel.send(random.choice(d20))
     if any(word in msg for word in d12_words):
